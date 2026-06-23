@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PROGRAM_NAME_PLACEHOLDER</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <button class="settings-button" id="settingsButton" type="button" aria-haspopup="dialog" aria-controls="settingsPanel" aria-expanded="false" aria-label="Open settings">
+        <span aria-hidden="true">⚙</span>
+      </button>
+
+      <section class="hero-card">
+        <p class="eyebrow">Ambient music player</p>
+        <h1>PROGRAM_NAME_PLACEHOLDER</h1>
+        <p class="status" id="playerStatus">Tap Start to begin. The player will continue while this tab stays open.</p>
+        <p class="track-title hidden" id="trackTitle"></p>
+        <button class="start-button" id="startButton" type="button">Start music</button>
+      </section>
+    </main>
+
+    <dialog class="settings-panel" id="settingsPanel" aria-labelledby="settingsTitle">
+      <form method="dialog" class="settings-card">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Playback controls</p>
+            <h2 id="settingsTitle">Settings</h2>
+          </div>
+          <button class="close-button" id="closeSettings" type="submit" aria-label="Close settings">×</button>
+        </div>
+
+        <fieldset>
+          <legend>Track categories</legend>
+          <p class="hint">Select any numbered track categories the randomizer is allowed to use.</p>
+          <div class="checkbox-grid" id="folderOptions"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Frequency</legend>
+          <label class="radio-row">
+            <input type="radio" name="frequency" value="default" checked />
+            <span><strong>Default</strong><small>Random wait of 600–1350 seconds.</small></span>
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="frequency" value="constant" />
+            <span><strong>Constant</strong><small>Random wait of 60–300 seconds.</small></span>
+          </label>
+          <label class="radio-row">
+            <input type="radio" name="frequency" value="instant" />
+            <span><strong>Instant</strong><small>Always waits 10 seconds; starts immediately if waiting.</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Display</legend>
+          <label class="toggle-row">
+            <input type="checkbox" id="showTitleToggle" checked />
+            <span>Show song title while playing</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" id="fadeToggle" checked />
+            <span>Use a soft fade-in for each track</span>
+          </label>
+        </fieldset>
+      </form>
+    </dialog>
+
+    <audio id="audioPlayer" preload="auto"></audio>
+    <script src="tracks.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
